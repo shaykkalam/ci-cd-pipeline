@@ -1,0 +1,21 @@
+name: Deploy Pipeline
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set Environment Variable
+        run: echo "APP_ENV=production" >> $GITHUB_ENV
+
+      - name: Simulate Deployment
+        run: |
+          echo "Deploying Application..."
+          echo "Environment: $APP_ENV"
+          echo "Deployment Successful"
